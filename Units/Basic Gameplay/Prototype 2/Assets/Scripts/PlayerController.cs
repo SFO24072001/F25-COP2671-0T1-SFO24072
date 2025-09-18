@@ -5,8 +5,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     GameObject projectilePrefab;
     float Horizontal = 0f;
-    float speed = 10.0f;
-    float xRange = 10f;
+    float speed = 20.0f;
+    float xRange = 17f;
 
     void Update()
     {
