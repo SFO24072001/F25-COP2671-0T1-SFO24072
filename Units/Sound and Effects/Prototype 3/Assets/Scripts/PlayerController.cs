@@ -3,23 +3,25 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody playerRb;
-    private float jumpForce = 10f;
-    private float gravityModifier;
+    [SerializeField] private float jumpForce = 10f;
+    [SerializeField] private float gravityModifier;
     public bool isOnGround = true;
     public bool gameOver = false;
+    private Animator playerAnim;
 
     void Start()
     {
-        playerRb = GetComponent<Rigidbody>();
-        playerRb.AddForce(Vector3.up * 1000);
+        playerAnim = GetComponent<Animator>();
+        playerRb = GetComponent<Rigidbody>();        
         Physics.gravity *= gravityModifier;
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) 
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround & !gameOver) 
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
+            playerAnim.SetTrigger("Jump_trig");
         }
     }
     private void OnCollisionEnter(Collision collision)
@@ -31,6 +33,8 @@ public class PlayerController : MonoBehaviour
         {
             gameOver = true;
             Debug.Log("Game Over!");
+            playerAnim.SetBool("Death_b", true);
+            playerAnim.SetInteger("DeathType_int", 1);
         }        
     }
 }
