@@ -622,6 +622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07eb86f18bfe3294fad9e3e8a7631ebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 25
 --- !u!65 &835818923
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -706,6 +707,14 @@ PrefabInstance:
     - target: {fileID: 400046, guid: 814f4326a50812947b2469896d89a215, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5872124042740951237, guid: 814f4326a50812947b2469896d89a215, type: 3}
+      propertyPath: jumpForce
+      value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 5872124042740951237, guid: 814f4326a50812947b2469896d89a215, type: 3}
+      propertyPath: gravityModifier
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

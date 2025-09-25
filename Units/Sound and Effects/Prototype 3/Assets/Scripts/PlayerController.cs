@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip jumpSound, crashSound;
 
     private AudioSource playerAudio;
+    private bool shouldJump = false;
 
     void Start()
     {
@@ -21,15 +22,25 @@ public class PlayerController : MonoBehaviour
         playerAudio = GetComponent<AudioSource>();
         Physics.gravity *= gravityModifier;
     }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround & !gameOver) 
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround & !gameOver)
+        {
+            shouldJump = true;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (shouldJump) 
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
             dirtParticle.Stop();
             playerAnim.SetTrigger("Jump_trig");
             playerAudio.PlayOneShot(jumpSound, 1.0f);
+            shouldJump = false;
         }
     }
     private void OnCollisionEnter(Collision collision)
