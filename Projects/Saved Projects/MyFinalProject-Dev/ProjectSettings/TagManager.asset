@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - WorldObjects
+  - GridBlockers
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Ground
+    uniqueID: 197823823
+    locked: 0
+  - name: Water
+    uniqueID: 1959360485
+    locked: 0
+  - name: Paths
+    uniqueID: 1927040169
+    locked: 0
+  - name: Cliffs
+    uniqueID: 1644287303
+    locked: 0
+  - name: Adornments
+    uniqueID: 1266951891
+    locked: 0
+  - name: Crop
+    uniqueID: 2885318289
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 1553435831
+    locked: 0
+  - name: Trees
+    uniqueID: 725166859
+    locked: 0
+  - name: Forefront
+    uniqueID: 2146920933
+    locked: 0
+  m_RenderingLayers:
+  - Default
