@@ -29,7 +29,7 @@ public class CropBlock : MonoBehaviour
     }
     private void Start()
     {
-        DayNightController.Instance.OnNextDay.AddListener(() => newDay = true);
+        // TODO: TimeManager.Events?.OnNewDay?.AddListener(() => newDay = true);
         StartCoroutine(UpdateCropRoutine());
     }
     private IEnumerator UpdateCropRoutine()
@@ -77,7 +77,7 @@ public class CropBlock : MonoBehaviour
     public void SetSeedPacket(SeedPacket seedPacket) => currentSeedPacket = seedPacket;
     public void AddToHarvestGrid()
     {
-        GridController.Instance.AddGrowblock(this);
+        // TODO: GridController.Instance.AddGrowblock(this);
     }
     public void AdvanceTo(GrowthStage stage)
     {

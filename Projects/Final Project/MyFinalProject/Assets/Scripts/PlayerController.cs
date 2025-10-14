@@ -5,22 +5,23 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private InputActionReference _inputActionReference;
-    [SerializeField] private float _playerSpeed = 5f;
-    public Vector2 PlayerInput => _inputActionReference.action.ReadValue<Vector2>();
-
-    private Vector2 _lastPlayerInput;
-    private Rigidbody2D _rigidbody;
+    [SerializeField] private float _moveSpeed = 5f;
+    public Vector2 PlayerInput
+    {
+        get
+        {
+            return _inputActionReference.action.ReadValue<Vector2>().normalized;
+        }
+    }
+    private Rigidbody2D _rigidbody2D;
 
     private void Start()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-    }
-    void Update()
-    {
-        _lastPlayerInput = PlayerInput.normalized;
-    }
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+    }    
     private void FixedUpdate()
     {
-        _rigidbody.linearVelocity = _lastPlayerInput * _playerSpeed;
+        _rigidbody2D.linearVelocity = PlayerInput * _moveSpeed;
     }
 }
+

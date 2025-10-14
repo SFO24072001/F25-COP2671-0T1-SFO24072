@@ -8,7 +8,7 @@
 public class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
 {
     internal static T _instance;
-    public static T Instance { 
+    protected static T Instance { 
         get
         {
             if (_instance == null)
