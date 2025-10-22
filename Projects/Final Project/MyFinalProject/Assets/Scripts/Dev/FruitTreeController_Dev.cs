@@ -1,9 +1,8 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using static Crops;
 
-public class FruitTreeController : MonoBehaviour
+public class FruitTreeController_Dev : MonoBehaviour
 {
     private readonly int FruitStageOffset = Enum.GetValues(typeof(TreeTypes)).Length;
     public enum TreeTypes

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class DayNightEvents : MonoBehaviour
+public class DayNightEvents_Dev : MonoBehaviour
 {
     private const int MIDNIGHT = 0;
 
@@ -20,7 +20,7 @@ public class DayNightEvents : MonoBehaviour
     public void Evaluate(float normalizedTime)
     {
         // Calculate the current hour based on normalized time
-        int calculatedHour = Mathf.FloorToInt(normalizedTime * TimeManager.HOURSPERDAY) % TimeManager.HOURSPERDAY;
+        int calculatedHour = Mathf.FloorToInt(normalizedTime * TimeManager_Dev.HOURSPERDAY) % TimeManager_Dev.HOURSPERDAY;
 
         if (calculatedHour == CurrentHour) return;
 

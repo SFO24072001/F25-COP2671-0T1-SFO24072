@@ -6,8 +6,8 @@ public class DayNightEvents : MonoBehaviour
     private const int MIDNIGHT = 0;
 
     [Header("Event Hours")]
-    [SerializeField] private int sunRiseHour = 6;    
-    [SerializeField] private int sunSetHour = 18;
+    [SerializeField] private int _sunRiseHour = 6;    
+    [SerializeField] private int _sunSetHour = 18;
 
     [Header("Day-Night Events")]
     public UnityEvent OnSunrise;
@@ -37,12 +37,12 @@ public class DayNightEvents : MonoBehaviour
     }
     private void TriggerSunset(int hour)
     {
-        if (hour == sunSetHour)
+        if (hour == _sunSetHour)
             OnSunset?.Invoke();
     }
     private void TriggerSunriseEvent(int hour)
     {
-        if (hour == sunRiseHour)
+        if (hour == _sunRiseHour)
             OnSunrise?.Invoke();
     }
     private void TriggerMidnightEvent(int hour)

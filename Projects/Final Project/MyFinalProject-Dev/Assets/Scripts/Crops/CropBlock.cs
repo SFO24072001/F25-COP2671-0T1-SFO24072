@@ -166,12 +166,12 @@ public class CropBlock : MonoBehaviour
     //    if (preventUse) return;
     //    if (isWildCrop is false && soilIsWatered is false) return;
 
-    //    if (currentStage == GrowthStage.planted ||
-    //        currentStage == GrowthStage.sprout ||
-    //        currentStage == GrowthStage.growing1 ||
-    //        currentStage == GrowthStage.growing2)
+    //    if (_currentStage == GrowthStage.planted ||
+    //        _currentStage == GrowthStage.sprout ||
+    //        _currentStage == GrowthStage.growing1 ||
+    //        _currentStage == GrowthStage.growing2)
     //    {
-    //        currentStage++;
+    //        _currentStage++;
     //        soilIsWatered = false;
     //        UpdateCropSprite();
     //    }

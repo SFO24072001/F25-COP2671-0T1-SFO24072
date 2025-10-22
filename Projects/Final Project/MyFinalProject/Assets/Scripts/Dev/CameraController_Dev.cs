@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class CameraController_Dev : MonoBehaviour
 {
     private Transform _clampMin, _clampMax;
     private Transform _target;
@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {        
-        _target = FindAnyObjectByType<PlayerController>().transform;
+        _target = FindAnyObjectByType<PlayerController_Dev>().transform;
         _clampMin = transform.GetChild(0);
         _clampMax = transform.GetChild(1);
 

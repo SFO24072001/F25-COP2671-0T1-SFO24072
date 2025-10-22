@@ -1,27 +1,25 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent (typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private InputActionReference _inputActionReference;
-    [SerializeField] private float _moveSpeed = 5f;
-    public Vector2 PlayerInput
-    {
-        get
-        {
-            return _inputActionReference.action.ReadValue<Vector2>().normalized;
-        }
-    }
-    private Rigidbody2D _rigidbody2D;
+    [SerializeField] float _playerSpeed = 1f;
 
-    private void Start()
+    private Rigidbody2D _rigidbody2D;
+    private Vector2 _movement;
+
+    void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-    }    
+    }
+
+    void Update()
+    {
+        _movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+    }
+
     private void FixedUpdate()
     {
-        _rigidbody2D.linearVelocity = PlayerInput * _moveSpeed;
+        _rigidbody2D.linearVelocity = _movement * _playerSpeed;
     }
 }
-

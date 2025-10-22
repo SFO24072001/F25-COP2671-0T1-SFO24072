@@ -47,11 +47,11 @@ TagManager:
   - name: Pathways
     uniqueID: 1964917609
     locked: 0
-  - name: House
-    uniqueID: 2489927037
-    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: House
+    uniqueID: 2489927037
     locked: 0
   - name: Farmland
     uniqueID: 570830899

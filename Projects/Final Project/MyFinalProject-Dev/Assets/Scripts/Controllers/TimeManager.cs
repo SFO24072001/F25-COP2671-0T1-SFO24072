@@ -10,12 +10,12 @@ public class TimeManager : SingletonMonoBehaviour<TimeManager>
     public static float Now => Instance._normalizedTime;
 
     [Header("Time Settings")]
-    [SerializeField] private float realTimeMinutesPerDay = 15f;
-    [SerializeField] private float timeMultiplier = 1f;
-    [SerializeField] private bool isCycleActive = true;
-    [SerializeField] private float updateInterval = 0.1f;
+    [SerializeField] private float _realTimeMinutesPerDay = 15f;
+    [SerializeField] private float _timeMultiplier = 1f;
+    [SerializeField] private bool _isCycleActive = true;
+    [SerializeField] private float _updateInterval = 0.1f;
 
-    private float DurationInSeconds => realTimeMinutesPerDay * SECONDSINMINUTE;
+    private float DurationInSeconds => _realTimeMinutesPerDay * SECONDSINMINUTE;
     private float _calculateTime;
     [SerializeField] private float _normalizedTime;
     private float _updateTimer;
@@ -28,16 +28,16 @@ public class TimeManager : SingletonMonoBehaviour<TimeManager>
     {
         while (true)
         {
-            if (isCycleActive)
+            if (_isCycleActive)
             {
                 _updateTimer += Time.deltaTime;
 
-                if (_updateTimer >= updateInterval)
+                if (_updateTimer >= _updateInterval)
                 {
                     _normalizedTime = (_calculateTime % DurationInSeconds) / DurationInSeconds;
                     OnTimeUpdated?.Invoke(_normalizedTime);
 
-                    _calculateTime += _updateTimer * timeMultiplier;
+                    _calculateTime += _updateTimer * _timeMultiplier;
                     _calculateTime %= DurationInSeconds;
                     _updateTimer = 0f;
                 }
@@ -52,6 +52,6 @@ public class TimeManager : SingletonMonoBehaviour<TimeManager>
 
         _calculateTime = (DurationInSeconds * hour / HOURSPERDAY);
     }
-    public void PauseCycle() => isCycleActive = false;
-    public void ResumeCycle() => isCycleActive = true;
+    public void PauseCycle() => _isCycleActive = false;
+    public void ResumeCycle() => _isCycleActive = true;
 }

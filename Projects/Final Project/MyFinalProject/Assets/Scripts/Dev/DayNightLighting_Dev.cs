@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 [RequireComponent(typeof(Light2D))]
-public class DayNightLighting : MonoBehaviour
+public class DayNightLighting_Dev : MonoBehaviour
 {
     [Header("Lighting")]
     [SerializeField] private AnimationCurve lightIntensityCurve;

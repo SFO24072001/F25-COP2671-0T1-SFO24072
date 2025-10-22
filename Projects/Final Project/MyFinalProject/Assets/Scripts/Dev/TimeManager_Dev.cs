@@ -1,10 +1,10 @@
 using System.Collections;
 using UnityEngine;
 
-public class TimeManager : SingletonMonoBehaviour<TimeManager>
+public class TimeManager_Dev : SingletonMonoBehaviour<TimeManager_Dev>
 {
     public const int HOURSPERDAY = 24;
-    public const float SECONDSINMINUTE = 60f;
+    public const float SECONDSPERMINUTE = 60f;
 
     public static System.Action<float> OnTimeUpdated;
     public static float Now => Instance._normalizedTime;
@@ -15,7 +15,7 @@ public class TimeManager : SingletonMonoBehaviour<TimeManager>
     [SerializeField] private bool isCycleActive = true;
     [SerializeField] private float updateInterval = 0.1f;
 
-    private float DurationInSeconds => realTimeMinutesPerDay * SECONDSINMINUTE;
+    private float DurationInSeconds => realTimeMinutesPerDay * SECONDSPERMINUTE;
     private float _calculateTime;
     [SerializeField] private float _normalizedTime;
     private float _updateTimer;
