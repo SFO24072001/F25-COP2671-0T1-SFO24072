@@ -41,9 +41,6 @@ TagManager:
   - name: Ground
     uniqueID: 2063774305
     locked: 0
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Water
     uniqueID: 3462890259
     locked: 0
@@ -55,6 +52,9 @@ TagManager:
     locked: 0
   - name: Farmland
     uniqueID: 570830899
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: Player
     uniqueID: 3074785061
