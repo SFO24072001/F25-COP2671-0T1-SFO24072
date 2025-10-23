@@ -1,14 +1,13 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using static Crops;
 
 public class FruitTreeController : MonoBehaviour
 {
     private readonly int FruitStageOffset = Enum.GetValues(typeof(TreeTypes)).Length;
     public enum TreeTypes
     {
-        Apple, Cherry, Peach, Pear
+        Random, Apple, Cherry, Peach, Pear
     } 
     [Header("Growth Stages")]
     [SerializeField] private Transform[] _growthStages;
@@ -46,6 +45,8 @@ public class FruitTreeController : MonoBehaviour
                 yield return new WaitForSeconds(_stageDelay);
                 GrowTree();
             }
+            else
+                yield return null;
         }
     }
     private void GrowTree()
@@ -56,7 +57,13 @@ public class FruitTreeController : MonoBehaviour
         } 
         if (_currentStage == _growthStages.Length -FruitStageOffset)
         {
-            _currentStage += (int)_treeType;
+            var index = (int)_treeType;
+
+            if (index == 0)
+            {
+                index = UnityEngine.Random.Range(1, FruitStageOffset);
+            }
+            _currentStage += index;
         }
     }
     public void TriggerNextStage()

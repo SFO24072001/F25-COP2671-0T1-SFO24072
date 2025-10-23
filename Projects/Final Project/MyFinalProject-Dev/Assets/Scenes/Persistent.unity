@@ -218,8 +218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6dbde6e78c8b04c9592abf6b7eb64d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sunRiseHour: 6
-  sunSetHour: 18
+  _sunRiseHour: 6
+  _sunSetHour: 18
   OnSunrise:
     m_PersistentCalls:
       m_Calls: []
@@ -240,14 +240,68 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9296790}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f85aa263809d344439117759f1d43afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lightIntensityCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.005
+      inSlope: 1.225
+      outSlope: 1.225
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.2
+      value: 0.25
+      inSlope: 2.1687503
+      outSlope: 2.1687503
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.35
+      value: 1
+      inSlope: 3.7500005
+      outSlope: 3.7500005
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.65
+      value: 1
+      inSlope: -1.2499998
+      outSlope: -1.2499998
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.8
+      value: 0.25
+      inSlope: -4.056249
+      outSlope: -4.056249
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.005
+      inSlope: -1.2250001
+      outSlope: -1.2250001
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -261,21 +315,21 @@ MonoBehaviour:
   - {r: 0.11764706, g: 0.15686275, b: 0.27450982, a: 0}
   lightColorGradient:
     serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 0.11764706, g: 0.15686275, b: 0.27450982, a: 1}
+    key1: {r: 0.19607843, g: 0.3137255, b: 0.50980395, a: 1}
+    key2: {r: 0.3529412, g: 0.5882353, b: 0.78431374, a: 0}
+    key3: {r: 0.50980395, g: 0.78431374, b: 0.9019608, a: 0}
+    key4: {r: 0.39215687, g: 0.6666667, b: 0.8235294, a: 0}
+    key5: {r: 0.23529412, g: 0.43137255, b: 0.627451, a: 0}
+    key6: {r: 0.11764706, g: 0.15686275, b: 0.27450982, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 65535
-    ctime2: 0
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
+    ctime1: 10923
+    ctime2: 21845
+    ctime3: 32768
+    ctime4: 43690
+    ctime5: 54613
+    ctime6: 65535
     ctime7: 0
     atime0: 0
     atime1: 65535
@@ -287,7 +341,7 @@ MonoBehaviour:
     atime7: 0
     m_Mode: 0
     m_ColorSpace: -1
-    m_NumColorKeys: 2
+    m_NumColorKeys: 7
     m_NumAlphaKeys: 2
 --- !u!114 &9296803
 MonoBehaviour:
@@ -557,6 +611,75 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1066440999
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 348703990223590870, guid: 07847fb6e6d989540ac9fd312ea30c91, type: 3}
+      propertyPath: _gridMax
+      value: 
+      objectReference: {fileID: 1903405841}
+    - target: {fileID: 348703990223590870, guid: 07847fb6e6d989540ac9fd312ea30c91, type: 3}
+      propertyPath: _gridMin
+      value: 
+      objectReference: {fileID: 1802479392}
+    - target: {fileID: 2715453903316870184, guid: 07847fb6e6d989540ac9fd312ea30c91, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715453903316870184, guid: 07847fb6e6d989540ac9fd312ea30c91, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715453903316870184, guid: 07847fb6e6d989540ac9fd312ea30c91, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715453903316870184, guid: 07847fb6e6d989540ac9fd312ea30c91, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715453903316870184, guid: 07847fb6e6d989540ac9fd312ea30c91, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715453903316870184, guid: 07847fb6e6d989540ac9fd312ea30c91, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715453903316870184, guid: 07847fb6e6d989540ac9fd312ea30c91, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715453903316870184, guid: 07847fb6e6d989540ac9fd312ea30c91, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715453903316870184, guid: 07847fb6e6d989540ac9fd312ea30c91, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715453903316870184, guid: 07847fb6e6d989540ac9fd312ea30c91, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8992814304096609161, guid: 07847fb6e6d989540ac9fd312ea30c91, type: 3}
+      propertyPath: m_Name
+      value: GridController
+      objectReference: {fileID: 0}
+    - target: {fileID: 8992814304096609161, guid: 07847fb6e6d989540ac9fd312ea30c91, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 07847fb6e6d989540ac9fd312ea30c91, type: 3}
 --- !u!1 &1257885593
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,10 +709,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb8d8bf496e5ad45a5bd74e46c6ea94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  realTimeMinutesPerDay: 1
-  timeMultiplier: 1
-  isCycleActive: 1
-  updateInterval: 0.1
+  _realTimeMinutesPerDay: 15
+  _timeMultiplier: 1
+  _isCycleActive: 1
+  _updateInterval: 0.1
   _normalizedTime: 0
 --- !u!4 &1257885595
 Transform:
@@ -618,7 +741,7 @@ GameObject:
   m_Layer: 0
   m_Name: Min Position
   m_TagString: Untagged
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 2800000, guid: b533c652136df4744a089524507a44c6, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -649,7 +772,7 @@ GameObject:
   m_Layer: 0
   m_Name: Max Position
   m_TagString: Untagged
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 2800000, guid: ba345f2f643d842459447c374943401d, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -678,11 +801,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1689443021357837001, guid: 43b842e3b04eaca47b3be6aeaa66f95d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 25.5
       objectReference: {fileID: 0}
     - target: {fileID: 1689443021357837001, guid: 43b842e3b04eaca47b3be6aeaa66f95d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1689443021357837001, guid: 43b842e3b04eaca47b3be6aeaa66f95d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -732,5 +855,6 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 9296799}
   - {fileID: 1257885595}
+  - {fileID: 1066440999}
   - {fileID: 5869374746460846340}
   - {fileID: 989372553}

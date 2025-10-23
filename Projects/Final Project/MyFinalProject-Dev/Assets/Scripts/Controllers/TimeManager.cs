@@ -26,7 +26,7 @@ public class TimeManager : SingletonMonoBehaviour<TimeManager>
     }
     private IEnumerator TimerRoutine()
     {
-        while (true)
+        while (enabled)
         {
             if (_isCycleActive)
             {

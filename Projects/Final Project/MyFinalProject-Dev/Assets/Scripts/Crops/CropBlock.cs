@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using static Crops;
 
-public class CropBlock : MonoBehaviour
+public class CropBlock : GridBlock
 {
     public GrowthStage currentStage = GrowthStage.barren;
     public SeedPacket currentSeedPacket;
@@ -11,7 +11,7 @@ public class CropBlock : MonoBehaviour
     public SpriteRenderer cropSR;
     public Sprite soilTilled, soilWatered;
     public bool isWildCrop = false;
-    public Vector2Int location;
+    
 
     public bool newDay = false;
 
@@ -20,7 +20,6 @@ public class CropBlock : MonoBehaviour
 
     public bool isFarmland = false;
     public bool soilIsWatered = false;
-    public bool preventUse = false;
 
     private void OnEnable()
     {
@@ -29,8 +28,8 @@ public class CropBlock : MonoBehaviour
     }
     private void Start()
     {
-        // TODO: TimeManager.Events?.OnNewDay?.AddListener(() => newDay = true);
-        StartCoroutine(UpdateCropRoutine());
+        // TODO: TimeManager.Events?.OnNewDay?.AddListener(() => _newDay = true);
+        //StartCoroutine(UpdateCropRoutine());
     }
     private IEnumerator UpdateCropRoutine()
     {
@@ -42,8 +41,7 @@ public class CropBlock : MonoBehaviour
         }
     }
     public void AdvanceCrop()
-    {
-        if (preventUse) return;
+    {   
         if (currentStage == GrowthStage.rotten) return;
         if (isWildCrop is false && soilIsWatered is false)
         {
@@ -59,7 +57,6 @@ public class CropBlock : MonoBehaviour
     }
     public int AdvanceStage()
     {
-        if (preventUse) return 0;
         if (currentSeedPacket == null) return 0;
 
         currentStage++;
@@ -81,7 +78,6 @@ public class CropBlock : MonoBehaviour
     }
     public void AdvanceTo(GrowthStage stage)
     {
-        if (preventUse) return;
         switch (stage)
         {
             case GrowthStage.barren:
@@ -110,8 +106,7 @@ public class CropBlock : MonoBehaviour
     }
     
     public void PrepareSoil()
-    {
-        if (preventUse) return;
+    {        
         if (isWildCrop) return;
 
         if (currentStage == GrowthStage.barren)
@@ -125,8 +120,7 @@ public class CropBlock : MonoBehaviour
             soilSR.sprite = soilTilled;
     }
     public void PloughSoil()
-    {
-        if (preventUse) return;
+    {        
         if (currentStage == GrowthStage.barren)
         {
             currentStage = GrowthStage.ploughed;
@@ -135,8 +129,6 @@ public class CropBlock : MonoBehaviour
     }
     public void WaterSoil()
     {
-        if (preventUse) return;
-
         soilIsWatered = true;
         daysWithoutWater = 0;
 
@@ -144,8 +136,6 @@ public class CropBlock : MonoBehaviour
     }
     public void PlantCrop()
     {
-        if (preventUse) return;
-
         if ((currentStage == GrowthStage.ploughed && soilIsWatered is true) || isWildCrop is true)
         {
             currentStage = GrowthStage.planted;
@@ -154,7 +144,6 @@ public class CropBlock : MonoBehaviour
     }
     private void UpdateCropSprite()
     {
-        if (preventUse) return;
         if (cropSR == null) return;
         if (currentSeedPacket == null) return;
         if (currentSeedPacket.GetCropStage(currentStage).cropImage == null) return;
@@ -189,8 +178,7 @@ public class CropBlock : MonoBehaviour
         AddToHarvestGrid();
     }
     public void HarvestCrop()
-    {
-        if (preventUse) return;
+    {   
         if (currentStage != GrowthStage.harvest) return;
 
         currentStage = GrowthStage.barren;
